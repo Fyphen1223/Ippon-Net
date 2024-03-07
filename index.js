@@ -78,6 +78,11 @@ app.get('/js/judge.js', (req, res) => {
 	res.send(fs.readFileSync('./web/js/judge.js', 'utf8'));
 });
 
+app.get('/css/play.css', (req, res) => {
+	res.set('Content-Type', 'text/css');
+	res.send(fs.readFileSync('./web/css/play.css', 'utf8'));
+});
+
 server.listen(8080, async () => {
 	console.log('Server started on port ' + 8080);
 });

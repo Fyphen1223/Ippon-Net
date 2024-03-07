@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rampart+One&display=swap');
+
+html {
+	font-family: 'M PLUS 1', sans-serif;
+}
+
+h1 {
+	text-align: center;
+	font-family: 'Rampart One', sans-serif;
+	font-weight: 400px;
+	font-size: 150px;
+	font-style: normal;
+}
