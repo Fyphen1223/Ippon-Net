@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>IPPON</title>
+	</head>
+	<body>
+		<h1>IPPONグランプリ</h1>
+		<h2>状態</h2>
+		<div>審査員: <span id="judge"></span></div>
+		<div>プレイヤー: <span id="player"></span></div>
+		<h2>お題</h2>
+		<h3 id="title"></h3>
+		<input type="text" id="theme" />
+		<button id="sendTheme">お題を決定</button>
+	</body>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="/js/index.js"></script>
+</html>
