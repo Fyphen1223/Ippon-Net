@@ -26,3 +26,39 @@ h1 {
 	font-size: 60px;
 	font-style: normal;
 }
+/*
+#halfLeft {
+	position: fixed;
+	width: 50%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+#halfRight {
+	position: fixed;
+	width: 50%;
+	height: 100%;
+	top: 0;
+	left: 50%;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+*/
+
+#screenHider {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+#resultShower {
+	display: none;
+	width: 0%;
+	left: 100%;
+	height: 70%;
+	background-color: rgba(0, 0, 0, 0.5);
+}
