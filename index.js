@@ -83,6 +83,11 @@ app.get('/css/play.css', (req, res) => {
 	res.send(fs.readFileSync('./web/css/play.css', 'utf8'));
 });
 
+app.get('/sounds/theme.mp3', (req, res) => {
+	res.set('Content-Type', 'audio/mpeg');
+	res.send(fs.readFileSync('./web/sounds/theme.mp3'));
+});
+
 server.listen(8080, async () => {
 	console.log('Server started on port ' + 8080);
 });

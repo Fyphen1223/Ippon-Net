@@ -5,10 +5,24 @@ html {
 	font-family: 'M PLUS 1', sans-serif;
 }
 
+h2,
+#theme {
+	text-align: center;
+	font-family: 'Rampart One', sans-serif;
+	font-weight: 400px;
+	font-size: 60px;
+	font-style: normal;
+}
+
+body {
+	background-color: yellow;
+	text-align: center;
+}
+
 h1 {
 	text-align: center;
 	font-family: 'Rampart One', sans-serif;
 	font-weight: 400px;
-	font-size: 150px;
+	font-size: 60px;
 	font-style: normal;
 }
