@@ -101,16 +101,13 @@ io.on('connection', (socket) => {
 		io.emit('setTheme', theme);
 	});
 	socket.on('result', (theme, result) => {
-		if (results[theme]) {
-			results[theme].push(result);
-			if (results[theme].length === 2) {
-				io.emit('results', results[theme]);
-				console.log(results[theme]);
-			}
-		}
 		if (!results[theme]) {
 			results[theme] = [];
 			results[theme].push(result);
+		} else if (results[theme].length == 1) {
+			results[theme].push(result);
+			io.emit('results', results[theme]);
+			delete results[theme];
 		}
 	});
 });

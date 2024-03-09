@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rampart+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
 
 html {
 	font-family: 'M PLUS 1', sans-serif;
@@ -11,6 +12,12 @@ h2,
 	font-family: 'Rampart One', sans-serif;
 	font-weight: 400px;
 	font-size: 60px;
+	font-style: normal;
+}
+
+#theme {
+	font-family: 'Dela Gothic One', sans-serif !important;
+	font-weight: 400;
 	font-style: normal;
 }
 
@@ -56,9 +63,19 @@ h1 {
 }
 
 #resultShower {
+	position: fixed;
 	display: none;
 	width: 0%;
-	left: 100%;
-	height: 70%;
-	background-color: rgba(0, 0, 0, 0.5);
+	left: 0%;
+	height: 100%;
+	background-color: yellow;
+	height: 100%;
+}
+
+#resultShower h1 {
+	position: absolute;
+	top: 35%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 100%;
 }

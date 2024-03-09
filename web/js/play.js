@@ -2,6 +2,10 @@
 /* eslint-disable no-undef */
 const socket = io();
 
+function sleep(ms) {
+	return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 window.onload = () => {
 	alert(
 		'IPPONグランプリを開始します。準備ができれば「OK」を押してください。なお、始める前には必ずページ内のどこかをクリックしないと正常に動作しません。'
@@ -13,6 +17,7 @@ const halfLeft = document.getElementById('halfLeft');
 const halfRight = document.getElementById('halfRight');
 const screenHider = document.getElementById('screenHider');
 const resultShower = document.getElementById('resultShower');
+const textResult = document.getElementById('textResult');
 
 /*
 halfLeft.addEventListener('click', () => {
@@ -53,15 +58,26 @@ socket.on('setTheme', (theme) => {
 		}
 	}, 100);
 	resultText.innerHTML = '';
+	resultShower.style.display = 'none';
 });
 
 function getRandomInt() {
 	return Math.floor(Math.random() * (500 - 20 + 1)) + 20;
 }
 
-socket.on('results', (result) => {
+async function createRoll(ippon) {
+	await sleep(5000);
+	textResult.innerHTML = 'IPPON';
+	await sleep(5000);
+	textResult.innerHTML = 'くだらない';
+	await sleep(1000);
+	textResult.innerHTML = 'IPPON';
+}
+
+socket.on('results', async (result) => {
 	let width = 0;
 	resultShower.style.display = 'block';
+	resultShower.style.transition = 'width 0.1s ease-out';
 	const intervalId = setInterval(() => {
 		if (width < 100) {
 			width++;
@@ -69,10 +85,16 @@ socket.on('results', (result) => {
 		} else {
 			clearInterval(intervalId);
 		}
-	}, 100);
+	}, 5);
+	await createRoll();
 	if (result[0] === true && result[1] === true) {
 		resultText.innerHTML = 'IPPON!';
 	} else {
 		resultText.innerHTML = '面白くない';
 	}
+	textResult.innerHTML = '';
+});
+
+resultShower.addEventListener('click', () => {
+	resultShower.style.display = 'none';
 });
