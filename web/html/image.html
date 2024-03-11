@@ -3,18 +3,21 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="/css/play.css" />
 		<title>IPPON</title>
 	</head>
 	<body>
+		<div id="halfLeft"></div>
+		<div id="halfRight"></div>
+		<div id="screenHider"></div>
+		<div id="resultShower"><h1 id="textResult"></h1></div>
 		<h1>IPPONグランプリ</h1>
 		<h2>お題</h2>
-		<h3 id="title"></h3>
-		<input type="text" id="theme" />
-		<button id="sendTheme">お題を決定</button>
-		<h2>画像で一言</h2>
-		<input type="file" accept="image/*" multiple />
+		<div id="theme"></div>
+		<h2>結果</h2>
+		<span id="result"></span>
 	</body>
 	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 	<script src="/socket.io/socket.io.js"></script>
-	<script src="/js/index.js"></script>
+	<script src="/js/play.js"></script>
 </html>

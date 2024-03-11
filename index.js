@@ -64,6 +64,10 @@ app.get('/judge', (req, res) => {
 	res.set('Content-Type', 'text/html');
 	res.send(fs.readFileSync('./web/html/judge.html', 'utf8'));
 });
+app.get('/image', (req, res) => {
+	res.set('Content-Type', 'text/html');
+	res.send(fs.readFileSync('./web/html/image.html', 'utf8'));
+});
 
 app.get('/js/index.js', (req, res) => {
 	res.set('Content-Type', 'text/javascript');
@@ -77,10 +81,18 @@ app.get('/js/judge.js', (req, res) => {
 	res.set('Content-Type', 'text/javascript');
 	res.send(fs.readFileSync('./web/js/judge.js', 'utf8'));
 });
+app.get('/js/image.js', (req, res) => {
+	res.set('Content-Type', 'text/javascript');
+	res.send(fs.readFileSync('./web/js/image.js', 'utf8'));
+});
 
 app.get('/css/play.css', (req, res) => {
 	res.set('Content-Type', 'text/css');
 	res.send(fs.readFileSync('./web/css/play.css', 'utf8'));
+});
+app.get('/css/image.css', (req, res) => {
+	res.set('Content-Type', 'text/css');
+	res.send(fs.readFileSync('./web/css/image.css', 'utf8'));
 });
 
 app.get('/sounds/theme.mp3', (req, res) => {
