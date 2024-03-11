@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+
 /* eslint-disable no-undef */
 const socket = io();
 
@@ -13,6 +14,9 @@ window.onload = () => {
 };
 
 const themeAudio = new Audio('/sounds/theme.mp3');
+const booingAudio = new Audio('/sounds/booing.wav');
+const ipponAudio = new Audio('/sounds/ippon.mp3');
+
 const halfLeft = document.getElementById('halfLeft');
 const halfRight = document.getElementById('halfRight');
 const screenHider = document.getElementById('screenHider');
@@ -65,17 +69,23 @@ function getRandomInt() {
 	return Math.floor(Math.random() * (500 - 20 + 1)) + 20;
 }
 
-async function createRoll(ippon) {
+async function createRoll(result) {
+	await themeAudio.play();
 	await sleep(2000);
-	textResult.innerHTML = 'IPPON';
-	await sleep(500);
-	textResult.innerHTML = 'くだらない';
-	await sleep(500);
-	textResult.innerHTML = 'IPPON';
+	if (result[0] === true && result[1] === true) {
+		ipponAudio.play();
+		textResult.innerHTML = 'IPPON';
+		console.log('Ippon');
+	} else {
+		booingAudio.play();
+		textResult.innerHTML = '👎';
+		console.log('Booing');
+	}
 }
 
 socket.on('results', async (result) => {
 	let width = 0;
+	textResult.innerHTML = '';
 	resultShower.style.display = 'block';
 	resultShower.style.transition = 'width 0.1s ease-out';
 	const intervalId = setInterval(() => {
@@ -86,13 +96,7 @@ socket.on('results', async (result) => {
 			clearInterval(intervalId);
 		}
 	}, 5);
-	await createRoll();
-	if (result[0] === true && result[1] === true) {
-		resultText.innerHTML = 'IPPON!';
-	} else {
-		resultText.innerHTML = '面白くない';
-	}
-	textResult.innerHTML = '';
+	await createRoll(result);
 });
 
 resultShower.addEventListener('click', () => {

@@ -87,6 +87,14 @@ app.get('/sounds/theme.mp3', (req, res) => {
 	res.set('Content-Type', 'audio/mpeg');
 	res.send(fs.readFileSync('./web/sounds/theme.mp3'));
 });
+app.get('/sounds/booing.wav', (req, res) => {
+	res.set('Content-Type', 'audio/wav');
+	res.send(fs.readFileSync('./web/sounds/booing.wav'));
+});
+app.get('/sounds/ippon.mp3', (req, res) => {
+	res.set('Content-Type', 'audio/mpeg');
+	res.send(fs.readFileSync('./web/sounds/ippon.mp3'));
+});
 
 server.listen(8080, async () => {
 	console.log('Server started on port ' + 8080);
