@@ -66,11 +66,11 @@ function getRandomInt() {
 }
 
 async function createRoll(ippon) {
-	await sleep(5000);
+	await sleep(2000);
 	textResult.innerHTML = 'IPPON';
-	await sleep(5000);
+	await sleep(500);
 	textResult.innerHTML = 'くだらない';
-	await sleep(1000);
+	await sleep(500);
 	textResult.innerHTML = 'IPPON';
 }
 
