@@ -74,8 +74,9 @@ h1 {
 
 #resultShower h1 {
 	position: absolute;
-	top: 35%;
+	top: 15%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	width: 100%;
+	font-size: 300px;
 }
